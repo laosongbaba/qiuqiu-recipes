@@ -18,11 +18,11 @@ body {
   color: var(--text-color);
 }
 
-/* 导航栏 - 覆盖 ananke 的黑色背景 */
+/* 导航栏 - 橙色主题背景 */
 header .bg-black,
 header .bg-black-60,
 header .bg-near-black {
-  background: #fff !important;
+  background: var(--primary-color) !important;
   box-shadow: 0 2px 8px var(--shadow-color);
 }
 
@@ -33,26 +33,28 @@ header .pv3 {
 
 /* 导航链接 */
 header .flex-l a {
-  color: var(--text-color) !important;
+  color: #fff !important;
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 header .flex-l a:hover {
-  color: var(--primary-color) !important;
+  color: #ffe8e0 !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
 /* 首页标题 */
 header .f2,
 header .f-subheadline-l {
-  color: var(--primary-color) !important;
+  color: #fff !important;
   font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header .light-silver,
 header .white-90,
 header .white-80 {
-  color: var(--text-light) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* 卡片式列表项 - 覆盖 ananke 样式 */
