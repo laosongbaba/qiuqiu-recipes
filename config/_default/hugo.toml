@@ -1,3 +1,11 @@
 # 构建配置
 [build]
   buildFuture = true
+
+# CSS 处理
+[build.buildStats]
+  enable = true
+
+[[build.cachebusters]]
+  source = 'assets/ananke/css/.*\.css'
+  target = 'css'

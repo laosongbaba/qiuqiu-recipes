@@ -1,29 +1,33 @@
 {{ define "main" }}
   <article class="pa3 pa4-ns">
-    <h1 class="f3 f2-ns mb4">搜索菜谱</h1>
-    
-    <div class="mb4">
-      <input 
-        type="text" 
-        id="search-input" 
-        placeholder="输入菜谱名称进行搜索..." 
-        class="input-reset ba b--black-20 pa2 w-100 w-50-ns"
+    <div class="text-center mb5">
+      <h1 class="f2 f1-ns mb2" style="color: #e85d39; font-weight: 700;">🔍 搜索菜谱</h1>
+      <p class="gray f5">快速找到你想做的美味佳肴</p>
+    </div>
+
+    <div class="mb5">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="🥘 输入菜谱名称，例如：红烧肉、鱼香肉丝..."
+        class="input-reset ba b--black-20 pa2 w-100"
         autocomplete="off"
+        style="font-size: 1.1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.08);"
       />
     </div>
-    
+
     <div id="search-results" class="flex-ns flex-wrap mx-n2">
       {{ range .Site.RegularPages }}
         <div class="w-50-ns w-100 pa2 search-item" data-title="{{ .Title | plainify | lower }}" data-link="{{ .Permalink }}">
-          <a href="{{ .Permalink }}" class="no-underline pa2 ba b--black-10 br2 db hover-shadow">
-            <h3 class="f4 mb2 mt0">{{ .Title }}</h3>
+          <a href="{{ .Permalink }}" class="no-underline pa3 ba b--black-10 br3 db">
+            <h3 class="f4 mb2 mt0" style="color: #2c3e50;">{{ .Title }}</h3>
             {{ with .Params.description }}
-              <p class="gray f6 mt0 mb2">{{ . }}</p>
+              <p class="gray f6 mt0 mb2" style="line-height: 1.6;">{{ . }}</p>
             {{ end }}
             {{ with .Params.tags }}
-              <div class="flex flex-wrap">
+              <div class="flex flex-wrap mt2">
                 {{ range first 3 . }}
-                  <span class="f6 bg-gray-100 pa1 mr1 br1">{{ . }}</span>
+                  <span class="f6 pa1 mr1 br2" style="background: linear-gradient(135deg, #fff5f2 0%, #ffe8e0 100%); color: #e85d39;">{{ . }}</span>
                 {{ end }}
               </div>
             {{ end }}
@@ -31,12 +35,13 @@
         </div>
       {{ end }}
     </div>
-    
-    <div id="no-results" class="dn pa4 tc gray">
-      未找到匹配的菜谱
+
+    <div id="no-results" class="dn pa5 tc">
+      <p class="f4 gray mb2">😅 未找到匹配的菜谱</p>
+      <p class="f6 gray">试试其他关键词吧～</p>
     </div>
   </article>
-  
+
   <script>
     (function() {
       const searchInput = document.getElementById('search-input');

@@ -1,0 +1,5 @@
+{{ $customStyle := resources.Get "ananke/css/custom.css" }}
+{{ if hugo.IsProduction }}
+  {{ $customStyle = $customStyle | minify | fingerprint }}
+{{ end }}
+<link rel="stylesheet" href="{{ $customStyle.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $customStyle.Data.Integrity }}"{{ end }}>

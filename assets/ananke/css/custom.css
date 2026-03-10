@@ -1,0 +1,262 @@
+/* 秋秋的菜谱 - 自定义样式 */
+
+/* 主色调 - 温暖的橙色系，激发食欲 */
+:root {
+  --primary-color: #e85d39;
+  --primary-hover: #d14a2a;
+  --secondary-color: #f8f9fa;
+  --text-color: #2c3e50;
+  --text-light: #7f8c8d;
+  --border-color: #e9ecef;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --shadow-hover: rgba(0, 0, 0, 0.12);
+}
+
+/* 整体背景 */
+body {
+  background: linear-gradient(135deg, #fef9f5 0%, #fffaf8 100%);
+  color: var(--text-color);
+}
+
+/* 导航栏 */
+.site-header {
+  background: #fff !important;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  padding: 1rem 0;
+}
+
+.site-header .site-title {
+  color: var(--primary-color) !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.site-header nav a {
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.site-header nav a:hover {
+  color: var(--primary-color);
+}
+
+/* 卡片式列表项 */
+.list-page-wrapper {
+  border: none;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.list-page-wrapper:hover {
+  box-shadow: 0 4px 16px var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.list-page-wrapper .list-page-title {
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.list-page-wrapper:hover .list-page-title {
+  color: var(--primary-color);
+}
+
+/* 文章页面 */
+.article-container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.article-container h1 {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.article-container h2 {
+  color: var(--text-color);
+  font-weight: 600;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  margin-top: 2rem;
+}
+
+/* 元信息样式 */
+.post-meta {
+  background: var(--secondary-color);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* 标签样式 */
+.post-meta a,
+.article-container a {
+  color: var(--primary-color);
+}
+
+.post-meta a:hover,
+.article-container a:hover {
+  color: var(--primary-hover);
+}
+
+/* 搜索页面美化 */
+#search-input {
+  border: 2px solid var(--border-color) !important;
+  border-radius: 12px !important;
+  padding: 1rem 1.5rem !important;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 3px rgba(232, 93, 57, 0.1);
+}
+
+#search-input::placeholder {
+  color: var(--text-light);
+}
+
+.search-item a {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.search-item a:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.search-item h3 {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.search-item .tag {
+  background: linear-gradient(135deg, #fff5f2 0%, #ffe8e0 100%);
+  color: var(--primary-color);
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* 首页特色 */
+.home-page .site-header {
+  background: linear-gradient(135deg, #fff5f2 0%, #fff 100%);
+}
+
+/* 分类页面 */
+.taxonomy-page .taxonomy-title {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* 按钮和交互 */
+.btn,
+button,
+input[type="submit"] {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover,
+button:hover,
+input[type="submit"]:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 4px 12px rgba(232, 93, 57, 0.3);
+}
+
+/* 代码块美化 */
+pre, code {
+  background: #f8f9fa;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+/* 引用块 */
+blockquote {
+  border-left: 4px solid var(--primary-color);
+  background: var(--secondary-color);
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  color: var(--text-light);
+}
+
+/* 页脚 */
+.site-footer {
+  background: #fff;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-light);
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .article-container {
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .article-container h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.list-page-wrapper,
+.search-item {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
