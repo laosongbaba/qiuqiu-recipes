@@ -1,6 +1,6 @@
 +++
 date = '2026-03-10T14:51:00+08:00'
-draft = true
+draft = false
 title = 'Cold Eat Beef'
 +++
 
