@@ -5,6 +5,10 @@ title = '秋秋的菜谱'
 theme = 'ananke'
 author = '秋秋'
 
+# 构建配置
+[build]
+  buildFuture = true
+
 # 分类和标签
 [taxonomies]
 category = 'categories'
