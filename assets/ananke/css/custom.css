@@ -18,52 +18,92 @@ body {
   color: var(--text-color);
 }
 
-/* 导航栏 */
-.site-header {
+/* 导航栏 - 覆盖 ananke 的黑色背景 */
+header .bg-black,
+header .bg-black-60,
+header .bg-near-black {
   background: #fff !important;
   box-shadow: 0 2px 8px var(--shadow-color);
-  padding: 1rem 0;
 }
 
-.site-header .site-title {
-  color: var(--primary-color) !important;
-  font-weight: 700;
-  font-size: 1.5rem;
+header .pv3 {
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
 }
 
-.site-header nav a {
-  color: var(--text-color);
+/* 导航链接 */
+header .flex-l a {
+  color: var(--text-color) !important;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
-.site-header nav a:hover {
-  color: var(--primary-color);
+header .flex-l a:hover {
+  color: var(--primary-color) !important;
 }
 
-/* 卡片式列表项 */
-.list-page-wrapper {
-  border: none;
+/* 首页标题 */
+header .f2,
+header .f-subheadline-l {
+  color: var(--primary-color) !important;
+  font-weight: 700;
+}
+
+header .light-silver,
+header .white-90,
+header .white-80 {
+  color: var(--text-light) !important;
+}
+
+/* 卡片式列表项 - 覆盖 ananke 样式 */
+.bg-white {
+  background: #fff !important;
   border-radius: 12px;
-  background: #fff;
   box-shadow: 0 2px 8px var(--shadow-color);
   transition: all 0.3s ease;
-  margin-bottom: 1rem;
+  border: none !important;
 }
 
-.list-page-wrapper:hover {
+.bg-white:hover {
   box-shadow: 0 4px 16px var(--shadow-hover);
   transform: translateY(-2px);
 }
 
-.list-page-wrapper .list-page-title {
-  color: var(--text-color);
+.bg-white .f3 a {
+  color: var(--text-color) !important;
   font-weight: 600;
   font-size: 1.25rem;
+  transition: color 0.2s ease;
 }
 
-.list-page-wrapper:hover .list-page-title {
-  color: var(--primary-color);
+.bg-white .f3 a:hover {
+  color: var(--primary-color) !important;
+}
+
+.bg-white .f3 a.dim:hover {
+  color: var(--primary-color) !important;
+}
+
+/* 文章摘要描述 */
+.bg-white .nested-links,
+.bg-white .lh-copy {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* 阅读更多按钮 */
+.bg-white .dib {
+  background: var(--primary-color) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.bg-white .dib:hover {
+  background: var(--primary-hover) !important;
 }
 
 /* 文章页面 */
