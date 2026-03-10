@@ -1,0 +1,25 @@
+# Hugo built site
+/public/
+
+# Hugo server lock file
+.hugo_build.lock
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (if using npm/yarn for assets)
+node_modules/
+
+# Cache files
+.cache/
+
+# Log files
+*.log
