@@ -10,8 +10,6 @@ show_recent_posts = false
 show_reading_time = false
 show_author = true
 
-# 社交媒体分享
+# 禁用分享功能（菜谱网站不需要）
 [ananke.social.share]
-icons = true
-sharetext = true
-networks = ["wechat", "weibo", "email"]
+disable_share = true
