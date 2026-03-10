@@ -23,3 +23,7 @@ tag = 'tags'
   name = "所有菜谱"
   pageRef = "/posts/"
   weight = 2
+[[menu.main]]
+  name = "搜索"
+  pageRef = "/search/"
+  weight = 3
