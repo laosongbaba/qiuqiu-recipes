@@ -1,8 +1,14 @@
 baseURL = 'https://qq.laosong.cloud/'
 languageCode = 'zh-cn'
+defaultContentLanguage = 'zh-cn'
 title = '秋秋的菜谱'
 theme = 'ananke'
 author = '秋秋'
+
+# 分类和标签
+[taxonomies]
+category = 'categories'
+tag = 'tags'
 
 # 菜单导航
 [[menu.main]]
