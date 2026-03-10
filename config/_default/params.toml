@@ -1,0 +1,17 @@
+# 主题外观
+description = "分享家常美味，记录每一道用心做的菜"
+favicon = "/favicon.ico"
+logo = "/images/logo.png"
+logo_width = 50
+logo_height = 50
+
+# 列表页显示
+show_recent_posts = false
+show_reading_time = false
+show_author = true
+
+# 社交媒体分享
+[ananke.social.share]
+icons = true
+sharetext = true
+networks = ["wechat", "weibo", "email"]

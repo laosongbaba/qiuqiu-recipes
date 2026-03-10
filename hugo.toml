@@ -1,4 +1,15 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Project'
+baseURL = 'https://qq.laosong.cloud/'
+languageCode = 'zh-cn'
+title = '秋秋的菜谱'
 theme = 'ananke'
+author = '秋秋'
+
+# 菜单导航
+[[menu.main]]
+  name = "首页"
+  pageRef = "/"
+  weight = 1
+[[menu.main]]
+  name = "所有菜谱"
+  pageRef = "/posts/"
+  weight = 2
