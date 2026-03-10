@@ -4,6 +4,10 @@
 # Hugo server lock file
 .hugo_build.lock
 
+# Hugo generated files
+hugo_stats.json
+resources/_gen/
+
 # IDE and editor files
 .vscode/
 .idea/
