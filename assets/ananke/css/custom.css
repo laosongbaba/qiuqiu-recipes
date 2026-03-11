@@ -302,3 +302,116 @@ blockquote {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-hover);
 }
+
+/* ========================================
+   标签云组件样式
+   ======================================== */
+
+/* 标签云容器 */
+.tag-cloud-container {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 2px 12px var(--shadow-color);
+  border: 1px solid var(--border-color);
+}
+
+/* 标签云布局 - 使用 flexbox 实现流式布局 */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.4;
+}
+
+/* 单个标签项 */
+.tag-cloud-item {
+  display: inline-block;
+  background: linear-gradient(135deg, #fff5f2 0%, #ffe8e0 100%);
+  color: var(--primary-color);
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(232, 93, 57, 0.15);
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(232, 93, 57, 0.1);
+}
+
+/* 标签悬停效果 */
+.tag-cloud-item:hover {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(232, 93, 57, 0.3);
+  border-color: transparent;
+}
+
+/* 标签点击效果 */
+.tag-cloud-item:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 热门标签特殊效果 - 通过 data-count 属性区分 */
+.tag-cloud-item[data-count]:nth-child(-n+5) {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 1px 3px rgba(232, 93, 57, 0.1);
+  }
+  50% {
+    box-shadow: 0 2px 8px rgba(232, 93, 57, 0.2);
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .tag-cloud-container {
+    padding: 1.25rem 1rem;
+    border-radius: 12px;
+  }
+
+  .tag-cloud {
+    gap: 0.4rem 0.5rem;
+  }
+
+  .tag-cloud-item {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.85rem !important;
+  }
+}
+
+/* 超小屏幕 */
+@media (max-width: 480px) {
+  .tag-cloud-container {
+    padding: 1rem 0.75rem;
+  }
+
+  .tag-cloud {
+    gap: 0.35rem;
+  }
+}
+
+/* 暗色模式支持（可选） */
+@media (prefers-color-scheme: dark) {
+  .tag-cloud-container {
+    background: #2d3748;
+    border-color: #4a5568;
+  }
+
+  .tag-cloud-item {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    color: #fbb6b6;
+    border-color: rgba(251, 182, 182, 0.2);
+  }
+
+  .tag-cloud-item:hover {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+    color: #fff;
+  }
+}

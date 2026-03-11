@@ -1,0 +1,37 @@
+{{ define "main" }}
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    
+    {{/* 标签云区域 - 所有菜谱页顶部 */}}
+    <section class="w-100 center mb4 mb5-ns">
+      <div class="mw8 center">
+        <div class="text-center mb3 mb4-ns">
+          <h2 class="f4 f3-ns mb2" style="color: #e85d39; font-weight: 700;">🏷️ 按标签浏览</h2>
+          <p class="gray f6">热门标签快速筛选相关菜谱</p>
+        </div>
+        
+        {{ partial "tag-cloud.html" (dict 
+          "context" $ 
+          "minFont" 0.85 
+          "maxFont" 1.9 
+          "limit" 40
+          "shuffle" true
+        ) }}
+      </div>
+    </section>
+
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }}">
+      {{ .Content }}
+    </section>
+    
+    <aside class="flex-ns mt5 flex-wrap justify-around">
+      {{ range .Paginator.Pages }}
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          {{ .Render "summary" }}
+        </div>
+      {{ end }}
+    </aside>
+    
+    {{/* former internal template */}}
+    {{ partial "pagination.html" . }}
+  </article>
+{{ end }}

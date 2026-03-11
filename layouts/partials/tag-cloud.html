@@ -1,0 +1,92 @@
+{{/* 
+  标签云组件
+  参数：
+    - context: 页面上下文
+    - minFont: 最小字体大小 (rem), 默认 0.85
+    - maxFont: 最大字体大小 (rem), 默认 1.8
+    - limit: 显示标签数量，0 表示不限制，默认 0
+    - shuffle: 是否随机打交相同权重的标签，默认 true
+*/}}
+
+{{ $context := .context | default .Page }}
+{{ $minFont := .minFont | default 0.85 }}
+{{ $maxFont := .maxFont | default 1.8 }}
+{{ $limit := .limit | default 0 }}
+{{ $shuffle := .shuffle | default true }}
+
+{{/* 获取所有标签及其计数 */}}
+{{ $tags := dict }}
+{{ range $context.Site.Taxonomies.tags }}
+  {{ $tags = merge $tags (dict .Page.Title .Count) }}
+{{ end }}
+
+{{/* 转换为排序用的 slice */}}
+{{ $tagList := slice }}
+{{ range $name, $count := $tags }}
+  {{ $tagList = $tagList | append (dict "name" $name "count" $count "page" ($context.Site.GetPage (printf "/tags/%s" $name))) }}
+{{ end }}
+
+{{/* 按数量降序排序 */}}
+{{ $tagList = sort $tagList "count" "desc" }}
+
+{{/* 相同数量的标签随机打乱 */}}
+{{ if $shuffle }}
+  {{ $grouped := dict }}
+  {{ range $tagList }}
+    {{ $count := string .count }}
+    {{ $existing := index $grouped $count | default slice }}
+    {{ $grouped = merge $grouped (dict $count ($existing | append .)) }}
+  {{ end }}
+  
+  {{ $tagList = slice }}
+  {{ range $count, $tags := $grouped }}
+    {{ $shuffled := shuffle $tags }}
+    {{ $tagList = $tagList | append $shuffled }}
+  {{ end }}
+  {{ $tagList = sort $tagList "count" "desc" }}
+{{ end }}
+
+{{/* 限制数量 */}}
+{{ if gt $limit 0 }}
+  {{ $tagList = first $limit $tagList }}
+{{ end }}
+
+{{/* 计算最大最小值用于字体映射 */}}
+{{ $maxCount := 0 }}
+{{ $minCount := 999999 }}
+{{ range $tagList }}
+  {{ if gt .count $maxCount }}{{ $maxCount = .count }}{{ end }}
+  {{ if lt .count $minCount }}{{ $minCount = .count }}{{ end }}
+{{ end }}
+
+{{/* 只有一两个标签时的特殊情况 */}}
+{{ if le (len $tagList) 1 }}
+  {{ $maxCount = 1 }}
+  {{ $minCount = 1 }}
+{{ end }}
+
+<div class="tag-cloud-container">
+  <div class="tag-cloud">
+    {{ range $tagList }}
+      {{/* 计算字体大小：线性插值 */}}
+      {{ $font := $minFont }}
+      {{ if gt $maxCount $minCount }}
+        {{ $ratio := div (sub .count $minCount) (sub $maxCount $minCount) }}
+        {{ $font = add $minFont (mul $ratio (sub $maxFont $minFont)) }}
+      {{ end }}
+      
+      {{/* 计算颜色深浅：数量越多颜色越深 */}}
+      {{ $opacity := add 0.6 (mul 0.4 (div (sub .count $minCount) (sub $maxCount $minCount | default 1))) }}
+      
+      <a 
+        href="{{ .page.RelPermalink }}" 
+        class="tag-cloud-item"
+        style="font-size: {{ printf "%.2f" $font }}rem;"
+        data-count="{{ .count }}"
+        title="{{ .name }} ({{ .count }} 道菜谱)"
+      >
+        <span style="opacity: {{ printf "%.2f" $opacity }};">{{ .name }}</span>
+      </a>
+    {{ end }}
+  </div>
+</div>
