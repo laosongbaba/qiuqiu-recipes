@@ -10,6 +10,9 @@ show_recent_posts = false
 show_reading_time = false
 show_author = true
 
+# Cloudflare Web Analytics 访问统计（token 在 Cloudflare 控制台 Web Analytics 页面获取）
+cloudflare_analytics_token = "af7258d1759b4bcf8611794d3252211a"
+
 # 禁用分享功能（菜谱网站不需要）
 [ananke.social.share]
 disable_share = true

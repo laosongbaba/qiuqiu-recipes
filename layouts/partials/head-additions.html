@@ -3,3 +3,10 @@
   {{ $customStyle = $customStyle | minify | fingerprint }}
 {{ end }}
 <link rel="stylesheet" href="{{ $customStyle.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $customStyle.Data.Integrity }}"{{ end }}>
+
+{{/* Cloudflare Web Analytics 访问统计 */}}
+{{ with site.Params.cloudflare_analytics_token }}
+  <!-- Cloudflare Web Analytics -->
+  <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ . }}"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+{{ end }}
