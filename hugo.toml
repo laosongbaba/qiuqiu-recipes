@@ -5,6 +5,9 @@ title = '秋秋的菜谱'
 theme = 'ananke'
 author = '秋秋'
 
+# SEO：生成 robots.txt（主题模板已含 Sitemap 声明）
+enableRobotsTXT = true
+
 # 构建配置
 [build]
   buildFuture = true
